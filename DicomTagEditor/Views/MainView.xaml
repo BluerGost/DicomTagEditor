@@ -1,0 +1,38 @@
+﻿<Window
+    x:Class="DicomTagEditor.Views.MainView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:DicomTagEditor"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:DicomTagEditor.ViewModels"
+    Title="Dicom Tag Editor"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+
+    <!--<Window.DataContext>
+        <vm:MainViewModel />
+    </Window.DataContext>-->
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+
+        <Button
+            Grid.Row="0"
+            Command="{Binding CommandOpenDicomFile}"
+            Content="Open Dicom File" />
+
+        <DataGrid Grid.Row="1" ItemsSource="{Binding DicomTagList}" />
+
+        <Button
+            Grid.Row="2"
+            Command="{Binding CommandSaveChanges}"
+            Content="Save Changes" />
+    </Grid>
+
+</Window>
